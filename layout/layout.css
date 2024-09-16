@@ -1,0 +1,33 @@
+* {
+    margin: 0px;
+    padding: 0px;
+ }
+
+body {
+    margin: 0;
+}
+
+.container {
+    background-color: snow;
+    margin: 0 20vw;
+    height: 100vh;
+}
+
+header {
+    cursor: default;
+    color: rgb(87, 80, 80);
+}
+
+header h1 {
+    text-align: center;
+    padding: 2rem;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+header nav a {
+}

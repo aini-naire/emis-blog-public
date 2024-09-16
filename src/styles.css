@@ -1,0 +1,71 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+.container {
+  background-color: snow;
+  margin: 0 20vw;
+  min-height: 100%;
+}
+
+header {
+  cursor: default;
+  color: rgb(87, 80, 80);
+  padding-bottom: 1rem;
+}
+
+header h1 {
+  text-align: center;
+  padding: 2rem;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+header nav a {}
+
+header hr {
+  color: lightgray;
+}
+
+main {
+  padding-left: 1rem;
+}
+
+main h2 {
+  padding-bottom: 1rem;
+  color: rgb(145, 145, 145);
+}
+
+main .summary {
+  padding-left: .5rem;
+  padding-bottom: .75rem;
+}
+
+main .summary:hover {
+  color: rgb(90, 90, 90);
+}
+
+main .summary  {
+  padding-left: .5rem;
+  padding-bottom: .75rem;
+}
+
+main .summary h3 {
+  font-size: x-large;
+  padding-bottom: .2rem;
+}
+
+main .summary hr {
+  margin-top: .75rem;
+}
