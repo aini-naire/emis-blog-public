@@ -22,7 +22,7 @@ function PostList() {
     return (
         <main>
             <h2>{i18n[language].list.posts}</h2>
-            {posts?.map(function (post, i) {
+            {posts?.posts.map(function (post, i) {
                 return (
                 <Link className="summary" to={"/post/" + post.url}>
                     <h3>{post.title}</h3>

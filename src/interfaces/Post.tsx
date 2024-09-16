@@ -28,7 +28,11 @@ export type PostMeta = {
     author: Author,
 }
 
-export type PostListResponse = PostMeta[];
+export type PostListResponse = {
+    posts: PostMeta[];
+    page: number;
+    pages: number;
+  };
 
 export type PostBase = {
     /**
