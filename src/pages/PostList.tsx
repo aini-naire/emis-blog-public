@@ -24,12 +24,12 @@ function PostList() {
             <h2>{i18n[language].list.posts}</h2>
             {posts?.posts.map(function (post, i) {
                 return (
-                <Link className="summary" to={"/post/" + post.url}>
-                    <h3>{post.title}</h3>
-                    <p>{post.tagline}</p>
-                    <p>posted by {post.author.fullName}</p>
-                    <hr/>
-                </Link>);
+                    <Link className="summary" to={"/post/" + post.url}>
+                        <h3>{post.title}</h3>
+                        <p>{post.tagline}</p>
+                        <p>posted by {post.author.fullName}</p>
+                        <hr />
+                    </Link>);
             })}
         </main>);
 }
