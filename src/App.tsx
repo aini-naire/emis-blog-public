@@ -44,6 +44,11 @@ const router = createBrowserRouter([
                 errorElement: <Error/>
             },
             {
+                path: "/:urlorid",
+                Component: PostView,
+                errorElement: <Error/>
+            },
+            {
                 path: "/EN",
                 loader: () => {
                     return setLanguageHandler("EN");
