@@ -1,9 +1,9 @@
 function Loading() {
-  return (
-    <div>
-      <span className="visually-hidden">Loading...</span>
-    </div>
-  )
+    return (
+        <div className="centered-message">
+            <span>l18n.loading</span>
+        </div>
+    )
 }
 
 export default Loading

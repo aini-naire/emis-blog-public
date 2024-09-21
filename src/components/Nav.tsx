@@ -7,15 +7,24 @@ import fetcher from "../helpers/SuspenseFetcher";
 
 function Navigation() {
     const [nav, setNav] = useState<NavResponse>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     const language = LanguageProvider.getLanguage();
     const location = useLocation();
 
     useEffect(() => {
-        const getPosts = async () => {
-            setNav(fetcher(NavAPI.get(language)));
+        const getNav = async () => {
+            NavAPI.get(language).then((response) => {
+                setLoading(false)
+                setNav(response.data)
+            }).catch(() => {
+                setError(true)
+                setLoading(false)
+            });
         };
 
-        getPosts();
+        setLoading(true)
+        getNav();
     }, [language]);
 
     return (
@@ -26,8 +35,9 @@ function Navigation() {
             </div>
             <Link to="/"><h1>emi's blog</h1></Link>
             <nav>
+                {loading && <a>i18n.loading</a>}
+                {error && <a>i18n.error</a>}
                 {nav.map((navItem) => <Link to={navItem.url}>{navItem.text}</Link>)}
-                <a>example link</a>
             </nav>
             <hr />
         </header>

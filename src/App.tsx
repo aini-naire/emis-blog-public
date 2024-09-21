@@ -11,6 +11,7 @@ import { Suspense } from "react";
 import { PostList } from "./pages/PostList";
 import { PostView } from "./pages/PostView";
 import { LanguageProvider } from "./providers/Language";
+import Error from "./components/Error";
 
 const setLanguageHandler = function (language: string) {
     LanguageProvider.setLanguage(language);
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             <>
                 <div className="container">
                     <Navigation />
-                <Suspense fallback={<div className="text-center"><Loading /></div>}>
+                <Suspense fallback={<Loading />}>
                     <Outlet />
                 </Suspense>
                 </div>
@@ -35,10 +36,12 @@ const router = createBrowserRouter([
             {
                 index: true,
                 Component: PostList,
+                errorElement: <Error/>
             },
             {
                 path: "/post/:urlorid",
-                Component: PostView
+                Component: PostView,
+                errorElement: <Error/>
             },
             {
                 path: "/EN",

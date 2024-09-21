@@ -116,3 +116,8 @@ main .pagination {
   align-items:center;
   justify-content: center;
 }
+
+.centered-message {
+  justify-content: center;
+  display: flex;
+}
