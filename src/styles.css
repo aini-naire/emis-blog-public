@@ -3,15 +3,23 @@
   padding: 0px;
 }
 
+a:visited {
+  all: unset;
+}
+a:visited * {
+  all: unset;
+}
+
+
 body {
   margin: 0;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 .container {
   background-color: snow;
   margin: 0 20vw;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 header {
@@ -20,9 +28,30 @@ header {
   padding-bottom: 1rem;
 }
 
+header a {
+  text-decoration: none;
+}
+
+header .languages {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  gap: .5rem;
+}
+
+header .languages a {
+  display: inline-flex;
+}
+
+header .languages :last-child {
+  padding-right: .75rem;
+}
+
 header h1 {
   text-align: center;
-  padding: 2rem;
+  padding-bottom: 2rem;
 }
 
 header nav {
@@ -32,7 +61,10 @@ header nav {
   padding-bottom: 2rem;
 }
 
-header nav a {}
+header nav a {
+  text-decoration: none;
+  color: rgb(87, 80, 80);
+}
 
 header hr {
   color: lightgray;
@@ -48,12 +80,19 @@ main h2 {
 }
 
 main .summary {
+  text-decoration: none;
+  color: rgb(24, 15, 21);
   padding-left: .5rem;
   padding-bottom: .75rem;
 }
 
 main .summary:hover {
   color: rgb(90, 90, 90);
+}
+
+main .summary:visited hr {
+  all:unset;
+
 }
 
 main .summary  {
@@ -68,4 +107,12 @@ main .summary h3 {
 
 main .summary hr {
   margin-top: .75rem;
+}
+
+main .pagination {
+  display: flex;
+  padding: 2rem 0;
+  gap: .5rem;
+  align-items:center;
+  justify-content: center;
 }

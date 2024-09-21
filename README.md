@@ -8,7 +8,7 @@
  - [ ] post body styling
  - [ ] posts as pages layout
 #### Functionality:
- - [ ] dynamic nav from server
+ - [x] dynamic nav from server
  - [ ] show author flag
  - [ ] posts as pages
  - [ ] tags/tags list

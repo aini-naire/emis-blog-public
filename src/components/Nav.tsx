@@ -6,9 +6,9 @@ import { NavAPI } from "../providers/NavAPI";
 import fetcher from "../helpers/SuspenseFetcher";
 
 function Navigation() {
-  const [nav, setNav] = useState<NavResponse>([]);
-  const language = LanguageProvider.getLanguage();
-  const location = useLocation();
+    const [nav, setNav] = useState<NavResponse>([]);
+    const language = LanguageProvider.getLanguage();
+    const location = useLocation();
 
     useEffect(() => {
         const getPosts = async () => {
@@ -19,14 +19,18 @@ function Navigation() {
     }, [language]);
 
     return (
-      <header>
-        <Link to="/"><h1>emi's blog</h1></Link>
-        <nav>
-        {nav.map((navItem) => <Link to={navItem.url}>{navItem.text}</Link>)}
-          <a>example link</a>
-        </nav>
-        <hr/>
-      </header>
+        <header>
+            <div className="languages">
+                <Link to="/EN">en</Link>
+                <Link to="/PT">pt</Link>
+            </div>
+            <Link to="/"><h1>emi's blog</h1></Link>
+            <nav>
+                {nav.map((navItem) => <Link to={navItem.url}>{navItem.text}</Link>)}
+                <a>example link</a>
+            </nav>
+            <hr />
+        </header>
     );
 }
 
