@@ -22,7 +22,7 @@ function PostList() {
         setTag(tagURL);
         setLanguage(lang);
         const getPosts = async () => {
-            setPosts(fetcher(tagURL ? PostsAPI.listByTag(tagURL, page) : PostsAPI.list(language, page)));
+            setPosts(fetcher(tagURL ? PostsAPI.listByTag(tagURL, page) : PostsAPI.list(lang, page)));
         };
         if (Number.isNaN(page)) {
             setParams({ page: 1 })
