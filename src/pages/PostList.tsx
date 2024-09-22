@@ -42,7 +42,7 @@ function PostList() {
     if (posts !== null) {
         return (
             <main>
-                <h2>{tag ? i18n[language].list.tag : i18n[language].list.posts} {tag && <i>{tag}</i>}</h2>
+                <h2 className="page-title">{tag ? i18n[language].list.tag : i18n[language].list.posts} {tag && <i>{tag}</i>}</h2>
                 {posts?.posts.map(function (post, i) {
                     return (
                         <Link key={post.id} className="summary" to={"/post/" + post.url}>

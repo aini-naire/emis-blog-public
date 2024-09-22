@@ -82,14 +82,15 @@ header nav a {
 }
 
 header hr {
-  color: var(--accent);
+  color: color-mix(in srgb, var(--accent), black 50%);
 }
 
 main {
+  color: var(--accent);
   padding-left: 1rem;
 }
 
-main h2 {
+main .page-title {
   padding-bottom: 1rem;
   color: var(--accent);
 }
@@ -98,17 +99,16 @@ main .summary {
   text-decoration: none;
   padding-left: .5rem;
   padding-bottom: .75rem;
-  color: var(--accent);
+  color: color-mix(in srgb, var(--accent), black 15%);
 }
 
 main .summary:hover {
-  color: color-mix(in srgb, var(--primary), white 50%);
+  color: var(--accent);
 }
 
 main .summary:visited hr {
   all: unset;
   color: var(--primary);
-
 }
 
 main .summary {
@@ -123,7 +123,7 @@ main .summary h3 {
 }
 
 main .summary:hover h3 {
-  color: color-mix(in srgb, var(--primary), white 50%);
+  color: color-mix(in srgb, var(--primary), white 30%);
 }
 
 main .summary hr {
@@ -146,6 +146,59 @@ main .pagination {
   color: var(--accent);
 }
 
-main article {
+main .page-title {
+  font-size: xx-large;
   color: var(--accent);
+  padding-bottom: 1rem;
+}
+
+main .post-title {
+  font-size: xx-large;
+  color: var(--accent);
+  padding-bottom: .25rem;
+}
+
+main .post-info {
+  color: color-mix(in srgb, var(--accent), black 40%);
+  padding-bottom: 1rem;
+}
+
+main article {
+  color: color-mix(in srgb, var(--accent), black 10%);
+  font-size: large;
+  letter-spacing: .1rem;
+  padding-bottom: 2rem;
+}
+
+main article :is(h1, h2, h3, h4, h5, h6) {
+  margin: 1rem 0;
+}
+
+main article blockquote {
+  margin: 1rem;
+  margin-right: 2rem;
+  background-color: color-mix(in srgb, var(--secondary), black 25%);
+}
+
+main article :is(ol, ul) {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+main article p {
+  margin-bottom: 1rem;
+}
+main article pre {
+  margin-bottom: 1rem;
+}
+
+main article code {
+  background-color: color-mix(in srgb, var(--primary), black 60%);
+}
+
+main article pre code {
+  display: block;
+  margin-right: 2rem;
+  border-color: black;
+  border-radius: 16px;
+  padding: .5rem;
 }

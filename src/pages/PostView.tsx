@@ -23,7 +23,8 @@ function PostView() {
     if (post) {
         return (
             <main>
-                <h2>{!post?.page && "post"} {post?.title}</h2>
+                <h2 className={post.page ? "page-title" : "post-title"}>{!post?.page && "post"} {post?.title}</h2>
+                {!post.page && <div className="post-info">i18n.post.created {new Date(post.created).toLocaleDateString()}</div>}
                 <article>
                     <Markdown>{post?.content}</Markdown>
                 </article>
