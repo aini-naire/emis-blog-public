@@ -7,9 +7,10 @@ import { LanguageProvider } from "../providers/Language";
 import { i18n } from "../i18n";
 
 function PostList() {
-    const language = LanguageProvider.getLanguage()
+    const lang = LanguageProvider.getLanguage();
     const [posts, setPosts] = useState<PostListResponse | null>(null);
     const [tag, setTag] = useState<string|null>(null);
+    const [language, setLanguage] = useState<string>(lang);
     let [params, setParams] = useSearchParams({ page: 1 });
     const location = useLocation();
     const { tagURL } = useParams();
@@ -19,6 +20,7 @@ function PostList() {
 
     useEffect(() => {
         setTag(tagURL);
+        setLanguage(lang);
         const getPosts = async () => {
             setPosts(fetcher(tagURL ? PostsAPI.listByTag(tagURL, page) : PostsAPI.list(language, page)));
         };
