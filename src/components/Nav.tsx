@@ -23,7 +23,7 @@ function Navigation() {
             });
         };
 
-        setLoading(true)
+        //setLoading(true)
         getNav();
     }, [language]);
 
