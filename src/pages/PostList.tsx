@@ -19,6 +19,8 @@ function PostList() {
     if (page > posts?.pages) setParams({ page: posts?.pages })
 
     useEffect(() => {
+        setTag(tagURL);
+        setLanguage(lang);
         const getPosts = async () => {
             setPosts(fetcher(tagURL ? PostsAPI.listByTag(tagURL, page) : PostsAPI.list(lang, page)));
         };
@@ -27,8 +29,6 @@ function PostList() {
             return;
         }
         getPosts();
-        setTag(tagURL);
-        setLanguage(lang);
     }, [location]);
 
     const handleNext = () => {
