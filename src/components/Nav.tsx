@@ -4,6 +4,7 @@ import { NavResponse } from "../interfaces/Nav";
 import { LanguageProvider } from "../providers/Language";
 import { NavAPI } from "../providers/NavAPI";
 import fetcher from "../helpers/SuspenseFetcher";
+import { i18n } from "../i18n";
 
 function Navigation() {
     const [nav, setNav] = useState<NavResponse>([]);
@@ -35,8 +36,8 @@ function Navigation() {
             </div>
             <Link to="/"><h1>emi's blog</h1></Link>
             <nav>
-                {loading && <a>i18n.loading</a>}
-                {error && <a>i18n.error</a>}
+                {loading && <a>{i18n[language].loading}</a>}
+                {error && <a>{i18n[language].error}</a>}
                 {nav.map((navItem) => <Link to={navItem.url}>{navItem.text}</Link>)}
             </nav>
             <hr />

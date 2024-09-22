@@ -12,7 +12,8 @@ export const i18n = {
             tag: "posts using tag"
         },
         post: {
-            not_found: "post not found"
+            not_found: "post not found",
+            created: "posted on"
         }
     },
     PT: {
@@ -28,7 +29,8 @@ export const i18n = {
             tag: "posts com a tag"
         },
         post: {
-            not_found: "post não encontrado"
+            not_found: "post não encontrado",
+            created: "postado em"
         }
     }
 }

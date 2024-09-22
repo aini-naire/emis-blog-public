@@ -5,8 +5,11 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { PostBase } from "../interfaces/Post";
 import Markdown from "markdown-to-jsx";
 import Loading from "../components/Loading";
+import { LanguageProvider } from "../providers/Language";
+import { i18n } from "../i18n";
 
 function PostView() {
+    const language = LanguageProvider.getLanguage();
     const [post, setPost] = useState<PostBase | null>(null);
     let location = useLocation();
     const { urlorid } = useParams();
@@ -24,7 +27,7 @@ function PostView() {
         return (
             <main>
                 <h2 className={post.page ? "page-title" : "post-title"}>{!post?.page && "post"} {post?.title}</h2>
-                {!post.page && <div className="post-info">i18n.post.created {new Date(post.created).toLocaleDateString()}</div>}
+                {!post.page && <div className="post-info">{i18n[language].post.created} {new Date(post.created).toLocaleDateString()}</div>}
                 <article>
                     <Markdown>{post?.content}</Markdown>
                 </article>

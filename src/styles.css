@@ -4,7 +4,7 @@
 }
 
 :root {
-  --primary: rgb(205, 120, 254);
+  --primary: rgb(219, 156, 255);
   --secondary: rgb(45, 40, 62);
   --accent: white;
 }
@@ -76,9 +76,9 @@ header nav {
   padding-bottom: 2rem;
 }
 
-header nav a {
+header nav a, header nav a:visited {
   text-decoration: none;
-  color: var(--primary);
+  color: color-mix(in srgb, var(--primary), black 20%);
 }
 
 header hr {
@@ -111,11 +111,6 @@ main .summary:visited hr {
   color: var(--primary);
 }
 
-main .summary {
-  padding-left: .5rem;
-  padding-bottom: .75rem;
-}
-
 main .summary h3 {
   font-size: x-large;
   padding-bottom: .2rem;
@@ -140,6 +135,14 @@ main .pagination {
   justify-content: center;
 }
 
+main .pagination span {
+  cursor: pointer;
+}
+
+main .pagination .pages {
+  cursor: default;
+}
+
 .centered-message {
   justify-content: center;
   display: flex;
@@ -147,12 +150,14 @@ main .pagination {
 }
 
 main .page-title {
+  cursor: default;
   font-size: xx-large;
   color: var(--accent);
   padding-bottom: 1rem;
 }
 
 main .post-title {
+  cursor: default;
   font-size: xx-large;
   color: var(--accent);
   padding-bottom: .25rem;
@@ -184,9 +189,11 @@ main article :is(ol, ul) {
   padding-left: 2rem;
   margin-bottom: 1rem;
 }
+
 main article p {
   margin-bottom: 1rem;
 }
+
 main article pre {
   margin-bottom: 1rem;
 }
