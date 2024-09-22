@@ -49,6 +49,11 @@ const router = createBrowserRouter([
                 errorElement: <Error/>
             },
             {
+                path: "/tag/:tagURL",
+                Component: PostList,
+                errorElement: <Error/>
+            },
+            {
                 path: "/EN",
                 loader: () => {
                     return setLanguageHandler("EN");

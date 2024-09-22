@@ -4,7 +4,7 @@
 }
 
 :root {
-  --primary: rgb(191, 91, 249);
+  --primary: rgb(205, 120, 254);
   --secondary: rgb(45, 40, 62);
   --accent: white;
 }
@@ -107,6 +107,7 @@ main .summary:hover {
 
 main .summary:visited hr {
   all: unset;
+  color: var(--primary);
 
 }
 
@@ -119,6 +120,10 @@ main .summary h3 {
   font-size: x-large;
   padding-bottom: .2rem;
   color: var(--primary);
+}
+
+main .summary:hover h3 {
+  color: color-mix(in srgb, var(--primary), white 50%);
 }
 
 main .summary hr {

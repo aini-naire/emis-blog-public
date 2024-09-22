@@ -8,7 +8,8 @@ export const i18n = {
             of: "of",
             next: "next",
             previous: "previous",
-            by: "by"
+            by: "by",
+            tag: "posts using tag"
         },
         post: {
             not_found: "post not found"
@@ -23,7 +24,8 @@ export const i18n = {
             of: "de",
             next: "próxima",
             previous: "anterior",
-            by: "por"
+            by: "por",
+            tag: "posts com a tag"
         },
         post: {
             not_found: "post não encontrado"

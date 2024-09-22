@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import fetcher from "../helpers/SuspenseFetcher";
 import { PostsAPI } from "../providers/PostsAPI";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
 import { PostListResponse } from "../interfaces/Post";
 import { LanguageProvider } from "../providers/Language";
 import { i18n } from "../i18n";
@@ -11,15 +11,15 @@ function PostList() {
     const [posts, setPosts] = useState<PostListResponse | null>(null);
     let [params, setParams] = useSearchParams({ page: 1 });
     let location = useLocation();
+    const { tagURL } = useParams();
     const page: number = params.get("page") ? Number(params.get("page")) : 1;
 
     if (page > posts?.pages) setParams({ page: posts?.pages })
 
     useEffect(() => {
         const getPosts = async () => {
-            setPosts(fetcher(PostsAPI.list(language, page)));
+            setPosts(fetcher(tagURL ? PostsAPI.listByTag(tagURL, page) : PostsAPI.list(language, page)));
         };
-
         if (Number.isNaN(page)) {
             setParams({ page: 1 })
             return;
@@ -37,7 +37,7 @@ function PostList() {
 
     return (
         <main>
-            <h2>{i18n[language].list.posts}</h2>
+            <h2>{tagURL ? i18n[language].list.tag : i18n[language].list.posts} {tagURL && <i>{tagURL}</i>}</h2>
             {posts?.posts.map(function (post, i) {
                 return (
                     <Link key={post.id} className="summary" to={"/post/" + post.url}>

@@ -5,6 +5,9 @@ export const PostsAPI = {
     return api.get("/post/" + postID);
   },
   list: async function (language: string, page: number) {
-    return api.get("/posts/"+language + "/" + page);
+    return api.get("/posts/" + language + "/" + page);
+  },
+  listByTag: async function (tagURL: string, page: number) {
+    return api.get("/tag/" + tagURL + "/" + page);
   },
 };
