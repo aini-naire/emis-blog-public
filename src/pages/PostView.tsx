@@ -16,7 +16,7 @@ function PostView() {
         };
 
         getPost();
-    }, []);
+    }, [location]);
 
     return (
         <main>
