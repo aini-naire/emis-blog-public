@@ -143,6 +143,7 @@ main .pagination {
 .centered-message {
   justify-content: center;
   display: flex;
+  color: var(--accent);
 }
 
 main article {

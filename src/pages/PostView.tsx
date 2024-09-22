@@ -4,6 +4,7 @@ import { PostsAPI } from "../providers/PostsAPI";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { PostBase } from "../interfaces/Post";
 import Markdown from "markdown-to-jsx";
+import Loading from "../components/Loading";
 
 function PostView() {
     const [post, setPost] = useState<PostBase | null>(null);
@@ -15,17 +16,21 @@ function PostView() {
             setPost(fetcher(PostsAPI.get(urlorid)));
         };
 
+        setPost(null);
         getPost();
     }, [location]);
 
-    return (
-        <main>
-            <h2>{!post?.page && "post"} {post?.title}</h2>
-            <article>
-                <Markdown>{post?.content}</Markdown>
-            </article>
-        </main>
-    );
+    if (post) {
+        return (
+            <main>
+                <h2>{!post?.page && "post"} {post?.title}</h2>
+                <article>
+                    <Markdown>{post?.content}</Markdown>
+                </article>
+            </main>
+        );
+    }
+    return <Loading />
 }
 
 export { PostView }
