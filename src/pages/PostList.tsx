@@ -43,14 +43,14 @@ function PostList() {
                     <Link key={post.id} className="summary" to={"/post/" + post.url}>
                         <h3>{post.title}</h3>
                         <p>{post.tagline}</p>
-                        <p>posted by {post.author.fullName}</p>
+                        <p>{i18n[language].list.by} {post.author.fullName}</p>
                         <hr />
                     </Link>);
             })}
             <div className="pagination">
-                {page !== 1 && <span onClick={handlePrevious}> previous </span>}
-                <span className="pages"> page {posts?.page} of {posts?.pages} </span>
-                {(page !== posts?.pages) && <span onClick={handleNext}> next </span>}</div>
+                {page !== 1 && <span onClick={handlePrevious}> {i18n[language].list.previous} </span>}
+                <span className="pages"> {i18n[language].list.page} {posts?.page} {i18n[language].list.of} {posts?.pages} </span>
+                {(page !== posts?.pages) && <span onClick={handleNext}> {i18n[language].list.next} </span>}</div>
 
         </main>);
 }
