@@ -9,14 +9,16 @@ import { i18n } from "../i18n";
 function PostList() {
     const language = LanguageProvider.getLanguage()
     const [posts, setPosts] = useState<PostListResponse | null>(null);
+    const [tag, setTag] = useState<string|null>(null);
     let [params, setParams] = useSearchParams({ page: 1 });
-    let location = useLocation();
+    const location = useLocation();
     const { tagURL } = useParams();
     const page: number = params.get("page") ? Number(params.get("page")) : 1;
 
     if (page > posts?.pages) setParams({ page: posts?.pages })
 
     useEffect(() => {
+        setTag(tagURL);
         const getPosts = async () => {
             setPosts(fetcher(tagURL ? PostsAPI.listByTag(tagURL, page) : PostsAPI.list(language, page)));
         };
@@ -35,24 +37,26 @@ function PostList() {
         setParams({ page: page - 1 });
     }
 
-    return (
-        <main>
-            <h2>{tagURL ? i18n[language].list.tag : i18n[language].list.posts} {tagURL && <i>{tagURL}</i>}</h2>
-            {posts?.posts.map(function (post, i) {
-                return (
-                    <Link key={post.id} className="summary" to={"/post/" + post.url}>
-                        <h3>{post.title}</h3>
-                        <p>{post.tagline}</p>
-                        <p>{i18n[language].list.by} {post.author.fullName}</p>
-                        <hr />
-                    </Link>);
-            })}
-            <div className="pagination">
-                {page !== 1 && <span onClick={handlePrevious}> {i18n[language].list.previous} </span>}
-                <span className="pages"> {i18n[language].list.page} {posts?.page} {i18n[language].list.of} {posts?.pages} </span>
-                {(page !== posts?.pages) && <span onClick={handleNext}> {i18n[language].list.next} </span>}</div>
+    if (posts !== null) {
+        return (
+            <main>
+                <h2>{tag ? i18n[language].list.tag : i18n[language].list.posts} {tag && <i>{tag}</i>}</h2>
+                {posts?.posts.map(function (post, i) {
+                    return (
+                        <Link key={post.id} className="summary" to={"/post/" + post.url}>
+                            <h3>{post.title}</h3>
+                            <p>{post.tagline}</p>
+                            <p>{i18n[language].list.by} {post.author.fullName}</p>
+                            <hr />
+                        </Link>);
+                })}
+                <div className="pagination">
+                    {page !== 1 && <span onClick={handlePrevious}> {i18n[language].list.previous} </span>}
+                    <span className="pages"> {i18n[language].list.page} {posts?.page} {i18n[language].list.of} {posts?.pages} </span>
+                    {(page !== posts?.pages) && <span onClick={handleNext}> {i18n[language].list.next} </span>}</div>
 
-        </main>);
+            </main>);
+    }
 }
 
 export { PostList }
