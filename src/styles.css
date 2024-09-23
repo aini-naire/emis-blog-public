@@ -7,6 +7,7 @@
   --primary: rgb(219, 156, 255);
   --secondary: rgb(45, 40, 62);
   --accent: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a:visited {
@@ -78,7 +79,7 @@ header nav {
 
 header nav a, header nav a:visited {
   text-decoration: none;
-  color: color-mix(in srgb, var(--primary), black 20%);
+  color: color-mix(in srgb, var(--primary), black 15%);
 }
 
 header hr {
@@ -177,7 +178,7 @@ main article {
 }
 
 main article :is(h1, h2, h3, h4, h5, h6) {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 main article blockquote {
