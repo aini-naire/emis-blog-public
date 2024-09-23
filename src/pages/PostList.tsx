@@ -24,7 +24,7 @@ function PostList() {
         const getPosts = async () => {
             setPosts(fetcher(tagURL ? PostsAPI.listByTag(tagURL, page) : PostsAPI.list(lang, page)));
         };
-        if (Number.isNaN(page)) {
+        if (Number.isNaN(page) || page < 1) {
             setParams({ page: 1 })
             return;
         }
