@@ -7,6 +7,7 @@
   --primary: rgb(219, 156, 255);
   --secondary: rgb(45, 40, 62);
   --accent: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a:visited {
@@ -18,6 +19,11 @@ a {
   cursor: pointer;
 }
 
+hr, hr:visited {
+  height: 2px;
+  border: none;
+  
+}
 
 body {
   margin: 0;
@@ -78,11 +84,16 @@ header nav {
 
 header nav a, header nav a:visited {
   text-decoration: none;
-  color: color-mix(in srgb, var(--primary), black 20%);
+  color: color-mix(in srgb, var(--primary), black 15%);
+}
+
+header nav a:hover {
+  text-decoration: none;
+  color: var(--primary);
 }
 
 header hr {
-  color: color-mix(in srgb, var(--accent), black 50%);
+  background: color-mix(in srgb, var(--primary), black 50%);
 }
 
 main {
@@ -99,16 +110,11 @@ main .summary {
   text-decoration: none;
   padding-left: .5rem;
   padding-bottom: .75rem;
-  color: color-mix(in srgb, var(--accent), black 15%);
+  color: color-mix(in srgb, var(--accent), black 30%);
 }
 
 main .summary:hover {
-  color: var(--accent);
-}
-
-main .summary:visited hr {
-  all: unset;
-  color: var(--primary);
+  color: color-mix(in srgb, var(--accent), black 20%);
 }
 
 main .summary h3 {
@@ -118,12 +124,26 @@ main .summary h3 {
 }
 
 main .summary:hover h3 {
-  color: color-mix(in srgb, var(--primary), white 30%);
+  color: color-mix(in srgb, var(--primary), white 40%);
 }
 
 main .summary hr {
   margin-top: .75rem;
-  color: var(--primary);
+  background: color-mix(in srgb, var(--primary), black 50%);
+  margin-left: -1rem;
+}
+
+main .summary:visited hr {
+  background: color-mix(in srgb, var(--primary), black 50%);
+}
+
+main .summary p {
+  display: flex;
+  gap: .3rem;
+}
+
+main .summary p a:hover {
+  color: color-mix(in srgb, var(--accent), white 50%);
 }
 
 main .pagination {
@@ -176,7 +196,7 @@ main article {
 }
 
 main article :is(h1, h2, h3, h4, h5, h6) {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 main article blockquote {
@@ -194,6 +214,10 @@ main article p {
   margin-bottom: 1rem;
 }
 
+main article a, main article a:visited {
+  color: color-mix(in srgb, var(--primary), black 10%);
+}
+
 main article pre {
   margin-bottom: 1rem;
 }
@@ -208,4 +232,9 @@ main article pre code {
   border-color: black;
   border-radius: 16px;
   padding: .5rem;
+}
+
+main .post-tags {
+  display: flex;
+  gap: .25rem;
 }

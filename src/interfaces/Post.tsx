@@ -17,28 +17,36 @@ export type Tag = {
     tagline: string;
 }
 
+export type TagLink = {
+    title: string;
+    url: string;
+}
+
 export type PostMeta = {
-    /**
-     * @type uuid
-     */
-    id: string;
     url: string;
     title: string;
     tagline: string;
+    /**
+     * @type date-time
+     */
+    created: string;
     author: Author,
+    showAuthor: boolean;
+    tags: TagLink[]
 }
 
 export type PostListResponse = {
     posts: PostMeta[];
     page: number;
     pages: number;
-  };
+};
+
+export type LanguageLink = {
+    language: Language;
+    url: string;
+}
 
 export type PostBase = {
-    /**
-     * @type uuid
-     */
-    id: string;
     url: string;
     content: string;
     title: string;
@@ -55,5 +63,6 @@ export type PostBase = {
     showAuthor: boolean;
     page: boolean;
     author: Author,
+    languages: LanguageLink[];
     tags?: Tag[];
 }

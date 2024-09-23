@@ -26,11 +26,15 @@ function PostView() {
     if (post) {
         return (
             <main>
-                <h2 className={post.page ? "page-title" : "post-title"}>{!post?.page && "post"} {post?.title}</h2>
-                {!post.page && <div className="post-info">{i18n[language].post.created} {new Date(post.created).toLocaleDateString()}</div>}
+                <h2 className={post.page ? "page-title" : "post-title"}>{post?.title}</h2>
+                {!post.page && <div className="post-info">{i18n[language].post.created} {new Date(post.created).toLocaleDateString()} {i18n[language].list.by} {post.author.fullName}</div>}
                 <article>
                     <Markdown>{post?.content}</Markdown>
                 </article>
+                {(post.tags.length > 0) && <i className="post-tags">tags: {post.tags.map((tag) => {
+                    return (<Link key={tag.url} to={"/tag/" + tag.url}><span>#{tag.title}</span></Link>)
+                })}
+                </i>}
             </main>
         );
     }
