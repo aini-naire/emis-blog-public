@@ -87,6 +87,11 @@ header nav a, header nav a:visited {
   color: color-mix(in srgb, var(--primary), black 15%);
 }
 
+header nav a:hover {
+  text-decoration: none;
+  color: var(--primary);
+}
+
 header hr {
   background: color-mix(in srgb, var(--primary), black 50%);
 }
