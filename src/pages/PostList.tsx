@@ -9,7 +9,7 @@ import { i18n } from "../i18n";
 function PostList() {
     const lang = LanguageProvider.getLanguage();
     const [posts, setPosts] = useState<PostListResponse | null>(null);
-    const [tag, setTag] = useState<string|null>(null);
+    const [tag, setTag] = useState<string | null>(null);
     const [language, setLanguage] = useState<string>(lang);
     let [params, setParams] = useSearchParams({ page: 1 });
     const location = useLocation();
@@ -45,10 +45,14 @@ function PostList() {
                 <h2 className="page-title">{tag ? i18n[language].list.tag : i18n[language].list.posts} {tag && <i>{tag}</i>}</h2>
                 {posts?.posts.map(function (post, i) {
                     return (
-                        <Link key={post.id} className="summary" to={"/post/" + post.url}>
+                        <Link key={post.url} className="summary" to={"/post/" + post.url}>
                             <h3>{post.title}</h3>
                             <p>{post.tagline}</p>
-                            <p>{i18n[language].list.by} {post.author.fullName}</p>
+                            {post.showAuthor && <p>{i18n[language].list.by} {post.author.fullName}</p>}
+                            {(post.tags.length > 0) && <p>tags: {post.tags.map((tag) => {
+                                return (<Link key={tag.url} to={"/tag/" + tag.url}><span>#{tag.title}</span></Link>)
+                            })}
+                            </p>}
                             <hr />
                         </Link>);
                 })}
