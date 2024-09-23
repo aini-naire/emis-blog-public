@@ -59,11 +59,16 @@ header .languages {
   display: flex;
   justify-content: end;
   align-items: end;
-  gap: .5rem;
+  color: color-mix(in srgb, var(--primary), black 10%);
 }
 
 header .languages a {
   display: inline-flex;
+  padding: 0 .5rem;
+}
+
+header .languages a:hover {
+  color: var(--primary);
 }
 
 header .languages :last-child {
@@ -166,7 +171,8 @@ main .pagination .pages {
 .centered-message {
   justify-content: center;
   display: flex;
-  color: var(--accent);
+  color: color-mix(in srgb, var(--accent), black 10%);
+  font-size: larger;
 }
 
 main .page-title {
@@ -192,7 +198,7 @@ main article {
   color: color-mix(in srgb, var(--accent), black 10%);
   font-size: large;
   letter-spacing: .1rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
 }
 
 main article :is(h1, h2, h3, h4, h5, h6) {
@@ -237,4 +243,5 @@ main article pre code {
 main .post-tags {
   display: flex;
   gap: .25rem;
+  padding-bottom: 2rem;
 }

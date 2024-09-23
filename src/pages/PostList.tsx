@@ -43,6 +43,7 @@ function PostList() {
         return (
             <main>
                 <h2 className="page-title">{tag ? i18n[language].list.tag : i18n[language].list.posts} {tag && <i>{tag}</i>}</h2>
+                {(posts.posts.length === 0) && <p className="centered-message">{i18n[language].list.empty}</p>}
                 {posts?.posts.map(function (post, i) {
                     return (
                         <Link key={post.url} className="summary" to={"/post/" + post.url}>

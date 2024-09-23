@@ -9,7 +9,8 @@ export const i18n = {
             next: "next",
             previous: "previous",
             by: "by",
-            tag: "posts using tag"
+            tag: "posts using tag",
+            empty: "no posts yet"
         },
         post: {
             not_found: "post not found",
@@ -26,7 +27,8 @@ export const i18n = {
             next: "próxima",
             previous: "anterior",
             by: "por",
-            tag: "posts com a tag"
+            tag: "posts com a tag",
+            empty: "nada aqui por enquanto"
         },
         post: {
             not_found: "post não encontrado",
