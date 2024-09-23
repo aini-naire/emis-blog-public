@@ -1,6 +1,6 @@
 export const i18n = {
     EN: {
-        error: "error",
+        error: "unable to load",
         loading: "loading",
         list: {
             posts: "posts",
@@ -17,7 +17,7 @@ export const i18n = {
         }
     },
     PT: {
-        error: "erro",
+        error: "erro ao carregar",
         loading: "carregando",
         list: {
             posts: "postagens",

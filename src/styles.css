@@ -19,6 +19,11 @@ a {
   cursor: pointer;
 }
 
+hr, hr:visited {
+  height: 2px;
+  border: none;
+  
+}
 
 body {
   margin: 0;
@@ -83,7 +88,7 @@ header nav a, header nav a:visited {
 }
 
 header hr {
-  color: color-mix(in srgb, var(--primary), black 50%);
+  background: color-mix(in srgb, var(--primary), black 50%);
 }
 
 main {
@@ -119,13 +124,12 @@ main .summary:hover h3 {
 
 main .summary hr {
   margin-top: .75rem;
-  color: color-mix(in srgb, var(--primary), black 50%);
+  background: color-mix(in srgb, var(--primary), black 50%);
   margin-left: -1rem;
 }
 
 main .summary:visited hr {
-  all: unset;
-  color: color-mix(in srgb, var(--primary), black 50%);
+  background: color-mix(in srgb, var(--primary), black 50%);
 }
 
 main .pagination {
@@ -194,6 +198,10 @@ main article :is(ol, ul) {
 
 main article p {
   margin-bottom: 1rem;
+}
+
+main article a, main article a:visited {
+  color: color-mix(in srgb, var(--primary), black 10%);
 }
 
 main article pre {
