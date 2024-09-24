@@ -1,4 +1,5 @@
 # Emi's blog frontend
+Simple personal Blog built from scratch.
 ### TODO
 #### Layout:
  - [x] Finish post summary style
