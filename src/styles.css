@@ -114,6 +114,7 @@ main .page-title {
 main .summary {
   text-decoration: none;
   padding-left: .5rem;
+  padding-right: 1rem;
   padding-bottom: .75rem;
   color: color-mix(in srgb, var(--accent), black 30%);
 }
@@ -136,6 +137,7 @@ main .summary hr {
   margin-top: .75rem;
   background: color-mix(in srgb, var(--primary), black 50%);
   margin-left: -1rem;
+  margin-right: -1rem;
 }
 
 main .summary:visited hr {
