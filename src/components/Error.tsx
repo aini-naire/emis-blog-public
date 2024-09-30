@@ -3,15 +3,14 @@ import { i18n } from "../i18n";
 import { LanguageProvider } from "../providers/Language";
 
 function Error() {
-    
-  let error = useRouteError();
-  const language = LanguageProvider.getLanguage();
+    let error = useRouteError();
+    const language = LanguageProvider.getLanguage();
+
     return (
-      <div className="centered-message">
-        <span>{error?.status === 404 ? i18n[language].post.not_found :i18n[language].error}</span>
-      </div>
+        <div className="centered-message">
+            <span>{error?.status === 404 ? i18n[language].errors[error.response.data.message] : i18n[language].error}</span>
+        </div>
     )
-  }
-  
-  export default Error
-  
+}
+
+export default Error
