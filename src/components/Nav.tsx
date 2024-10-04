@@ -38,7 +38,7 @@ function Navigation() {
             <nav>
                 {loading && <a>{i18n[language].loading}</a>}
                 {error && <a>{i18n[language].error}</a>}
-                {nav.map((navItem) => <Link to={navItem.url} key={navItem.url}>{navItem.text}</Link>)}
+                {nav.map((navItem) => !navItem.external ? <Link to={navItem.url} key={navItem.url}>{navItem.text}</Link> : <a href={navItem.url} target="_blank" key={navItem.url}>{navItem.text}</a>)}
             </nav>
             <hr />
         </header>

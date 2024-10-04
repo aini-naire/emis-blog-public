@@ -7,6 +7,7 @@ export enum Language {
 export type Nav = {
     text: string;
     url: string;
+    external: boolean;
 }
 
 export type NavResponse = Nav[];
@@ -72,7 +73,7 @@ export type PostBase = {
     page: boolean;
     author: Author,
     languages: LanguageLink[];
-    tags?: Tag[];
+    tags: TagLink[];
 }
 
 export type ErrorResponse = {
