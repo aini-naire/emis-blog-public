@@ -55,7 +55,7 @@ function PostList() {
     if (posts !== null) {
         return (
             <main>
-                <h2 className="page-title">{tag ? i18n[language].list.tag : i18n[language].list.posts} {tag && <i>{tag.title}</i>}</h2>
+                <h2 className="page-title">{tag ? i18n[language].list.tag : i18n[language].list.posts} {tag && <i>{tag.title.toLowerCase()}</i>}</h2>
                 {(posts.posts.length === 0) && <p className="centered-message">{i18n[language].list.empty}</p>}
                 {posts?.posts.map(function (post, i) {
                     return (

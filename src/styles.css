@@ -241,6 +241,48 @@ main article pre code {
   border-radius: 16px;
   padding: .5rem;
 }
+main article .img-p {
+  display: flex;
+}
+
+main article .img-p span{
+  display: flex;
+}
+
+main article img {
+  width: 100%;
+
+  border-radius: 4px;
+  border-color: black;
+}
+
+main article .img {
+  flex-direction: column;
+  display: flex;
+}
+
+main article .img.half {
+  width: 50%;
+}
+
+main article .img.third {
+  width: 33%;
+}
+
+main article .img.left {
+  justify-content: left;
+}
+
+main article .img.right {
+  justify-content: right;
+}
+
+main article .img label {
+  justify-content: center;
+  display: flex;
+  color: color-mix(in srgb, var(--accent), black 20%);
+  font-size: medium;
+}
 
 main .post-tags {
   display: flex;
